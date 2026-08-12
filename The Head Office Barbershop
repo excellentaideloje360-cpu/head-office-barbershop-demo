@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Head-Office-Barbershop. — Cut Different</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black: #0a0a0b;
+    --bone: #ece7dd;
+    --oxblood: #7a1414;
+    --oxblood-bright: #a81f1f;
+    --brass: #c99a2e;
+    --steel: #2b2b2e;
+    --steel-light: #45454a;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--black);
+    color:var(--bone);
+    font-family:'Space Grotesk', sans-serif;
+    overflow-x:hidden;
+  }
+
+  h1,h2,h3, .display{
+    font-family:'Anton', sans-serif;
+    font-weight:400;
+    text-transform:uppercase;
+    letter-spacing:0.01em;
+    line-height:0.92;
+  }
+
+  .mono{
+    font-family:'JetBrains Mono', monospace;
+  }
+
+  a{color:inherit;text-decoration:none;}
+
+  ::selection{background:var(--oxblood-bright);color:var(--bone);}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+
+  /* ---------- barber stripe divider (signature element) ---------- */
+  .stripe-divider{
+    height:14px;
+    width:100%;
+    background:repeating-linear-gradient(
+      -45deg,
+      var(--oxblood) 0px, var(--oxblood) 18px,
+      var(--bone) 18px, var(--bone) 36px,
+      var(--steel) 36px, var(--steel) 54px
+    );
+    background-size:152px 100%;
+    animation:stripe-scroll 3.5s linear infinite;
+  }
+  @keyframes stripe-scroll{
+    from{background-position-x:0;}
+    to{background-position-x:152px;}
+  }
+
+  /* ---------- nav ---------- */
+  header{
+    position:fixed;
+    top:0;left:0;right:0;
+    z-index:100;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 6vw;
+    background:rgba(10,10,11,0.85);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--steel);
+  }
+  .logo{
+    font-family:'Anton', sans-serif;
+    font-size:1.4rem;
+    letter-spacing:0.03em;
+  }
+  .logo span{color:var(--oxblood-bright);}
+  nav ul{
+    display:flex;
+    gap:2.2rem;
+    list-style:none;
+  }
+  nav a{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.78rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    position:relative;
+    padding-bottom:4px;
+  }
+  nav a::after{
+    content:'';
+    position:absolute;
+    left:0;bottom:0;
+    width:0;height:2px;
+    background:var(--oxblood-bright);
+    transition:width 0.25s ease;
+  }
+  nav a:hover::after{width:100%;}
+  .nav-book{
+    background:var(--oxblood-bright);
+    color:var(--bone) !important;
+    padding:10px 18px;
+    font-weight:600;
+  }
+  .nav-book::after{display:none;}
+  .nav-book:hover{background:var(--brass);}
+
+  .mobile-toggle{display:none;}
+
+  @media (max-width: 820px){
+    nav ul{
+      position:fixed;
+      top:64px;left:0;right:0;
+      background:var(--black);
+      flex-direction:column;
+      gap:0;
+      max-height:0;
+      overflow:hidden;
+      transition:max-height 0.3s ease;
+      border-bottom:1px solid var(--steel);
+    }
+    nav ul.open{max-height:400px;}
+    nav li{border-bottom:1px solid var(--steel);}
+    nav a{display:block;padding:16px 6vw;}
+    .mobile-toggle{
+      display:block;
+      background:none;
+      border:1px solid var(--bone);
+      color:var(--bone);
+      font-family:'JetBrains Mono';
+      font-size:0.75rem;
+      padding:8px 12px;
+      cursor:pointer;
+    }
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    min-height:100svh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:120px 6vw 60px;
+    position:relative;
+    background:
+      radial-gradient(ellipse at 80% 20%, rgba(122,20,20,0.35), transparent 55%),
+      var(--black);
+  }
+
+  .hero-eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.8rem;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--brass);
+    margin-bottom:1.2rem;
+  }
+
+  .hero h1{
+    font-size:clamp(3.2rem, 11vw, 8.5rem);
+    color:var(--bone);
+  }
+  .hero h1 .accent{
+    color:var(--oxblood-bright);
+    -webkit-text-stroke:2px var(--bone);
+  }
+
+  .hero-sub{
+    max-width:520px;
+    margin-top:1.8rem;
+    font-size:1.05rem;
+    color:#b8b3a8;
+    line-height:1.55;
+  }
+
+  .hero-cta{
+    display:flex;
+    gap:1rem;
+    margin-top:2.5rem;
+    flex-wrap:wrap;
+  }
+
+  .btn{
+    font-family:'JetBrains Mono', monospace;
+    text-transform:uppercase;
+    font-size:0.85rem;
+    letter-spacing:0.05em;
+    padding:16px 30px;
+    border:2px solid var(--bone);
+    display:inline-block;
+    transition:all 0.2s ease;
+    cursor:pointer;
+  }
+  .btn-fill{
+    background:var(--oxblood-bright);
+    border-color:var(--oxblood-bright);
+    color:var(--bone);
+  }
+  .btn-fill:hover{
+    background:var(--brass);
+    border-color:var(--brass);
+    color:var(--black);
+  }
+  .btn-outline:hover{
+    background:var(--bone);
+    color:var(--black);
+  }
+
+  .hero-marquee{
+    position:absolute;
+    bottom:0;left:0;right:0;
+    white-space:nowrap;
+    overflow:hidden;
+    border-top:1px solid var(--steel);
+  }
+  .hero-marquee-track{
+    display:inline-block;
+    padding:14px 0;
+    animation:marquee 22s linear infinite;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.78rem;
+    letter-spacing:0.15em;
+    color:var(--steel-light);
+    text-transform:uppercase;
+  }
+  .hero-marquee-track span{margin:0 2rem;}
+  .hero-marquee-track span.hot{color:var(--oxblood-bright);}
+  @keyframes marquee{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+
+  /* ---------- section shared ---------- */
+  section{
+    padding:110px 6vw;
+    position:relative;
+  }
+  .section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    margin-bottom:3.5rem;
+    gap:2rem;
+    flex-wrap:wrap;
+  }
+  .section-head h2{
+    font-size:clamp(2.2rem, 6vw, 4rem);
+  }
+  .section-tag{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.78rem;
+    text-transform:uppercase;
+    letter-spacing:0.15em;
+    color:var(--oxblood-bright);
+    border:1px solid var(--oxblood-bright);
+    padding:6px 14px;
+    white-space:nowrap;
+  }
+
+  /* ---------- services ---------- */
+  .services{background:var(--black);}
+  .service-list{
+    border-top:1px solid var(--steel);
+  }
+  .service-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:1.8rem 0;
+    border-bottom:1px solid var(--steel);
+    gap:1rem;
+    transition:padding-left 0.25s ease, background 0.25s ease;
+  }
+  .service-row:hover{
+    background:rgba(122,20,20,0.12);
+    padding-left:1rem;
+  }
+  .service-name{
+    font-family:'Anton', sans-serif;
+    font-size:clamp(1.3rem, 3vw, 2rem);
+    text-transform:uppercase;
+    display:flex;
+    align-items:baseline;
+    gap:1rem;
+  }
+  .service-desc{
+    font-family:'Space Grotesk';
+    font-size:0.85rem;
+    color:#8a8578;
+    font-weight:400;
+    text-transform:none;
+    letter-spacing:0;
+  }
+  .service-price{
+    font-family:'JetBrains Mono', monospace;
+    font-size:1.3rem;
+    color:var(--brass);
+    white-space:nowrap;
+  }
+
+  /* ---------- about / chairs ---------- */
+  .about{
+    background:var(--steel);
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:4rem;
+    align-items:center;
+  }
+  .about-copy p{
+    color:#c9c4b8;
+    line-height:1.7;
+    margin-bottom:1.2rem;
+    font-size:1rem;
+  }
+  .about-copy p:first-of-type{font-size:1.15rem;color:var(--bone);}
+
+  .chairs{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+    border:1px solid var(--steel-light);
+  }
+  .chair{
+    padding:1.4rem 1.6rem;
+    border-bottom:1px solid var(--steel-light);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .chair:last-child{border-bottom:none;}
+  .chair-name{font-family:'Anton'; font-size:1.2rem; text-transform:uppercase;}
+  .chair-role{font-family:'JetBrains Mono'; font-size:0.72rem; color:var(--brass); text-transform:uppercase; letter-spacing:0.08em;}
+
+  @media (max-width: 900px){
+    .about{grid-template-columns:1fr;}
+  }
+
+  /* ---------- gallery ---------- */
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    grid-auto-rows:180px;
+    gap:6px;
+  }
+  .gallery-grid div{
+    background:linear-gradient(135deg, var(--steel), var(--steel-light));
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    align-items:flex-end;
+    padding:12px;
+    font-family:'JetBrains Mono';
+    font-size:0.7rem;
+    color:#6f6a5f;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+  }
+  .gallery-grid div:nth-child(1){grid-column:span 2; grid-row:span 2;}
+  .gallery-grid div:nth-child(4){grid-column:span 2;}
+  .gallery-grid div::before{
+    content:'';
+    position:absolute;inset:0;
+    background:repeating-linear-gradient(-45deg, transparent 0 8px, rgba(0,0,0,0.15) 8px 9px);
+  }
+  @media (max-width:700px){
+    .gallery-grid{grid-template-columns:repeat(2,1fr); grid-auto-rows:130px;}
+    .gallery-grid div:nth-child(1){grid-column:span 2;grid-row:span 1;}
+  }
+
+  /* ---------- hours / location ---------- */
+  .info{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:4rem;
+    background:var(--black);
+    border-top:1px solid var(--steel);
+    border-bottom:1px solid var(--steel);
+  }
+  .hours-row{
+    display:flex;
+    justify-content:space-between;
+    padding:0.7rem 0;
+    border-bottom:1px dashed var(--steel-light);
+    font-family:'JetBrains Mono';
+    font-size:0.9rem;
+    text-transform:uppercase;
+  }
+  .hours-row.closed{color:var(--oxblood-bright);}
+  .addr-block p{margin-bottom:0.5rem; color:#c9c4b8; line-height:1.6;}
+  .addr-block .big{
+    font-family:'Anton';
+    font-size:1.8rem;
+    text-transform:uppercase;
+    color:var(--bone);
+    margin-bottom:1rem;
+  }
+  @media (max-width:820px){
+    .info{grid-template-columns:1fr;}
+  }
+
+  /* ---------- booking cta ---------- */
+  .book-cta{
+    text-align:center;
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(201,154,46,0.15), transparent 60%),
+      var(--black);
+  }
+  .book-cta h2{
+    font-size:clamp(2.4rem, 8vw, 5.5rem);
+  }
+  .book-cta .accent{color:var(--oxblood-bright);}
+  .book-cta p{
+    color:#b8b3a8;
+    max-width:480px;
+    margin:1.2rem auto 2.5rem;
+  }
+
+  /* ---------- footer ---------- */
+  footer{
+    padding:50px 6vw 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:1.5rem;
+    font-family:'JetBrains Mono';
+    font-size:0.75rem;
+    color:#6f6a5f;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+  }
+  footer .fmark{color:var(--bone); font-family:'Anton'; font-size:1.1rem; text-transform:uppercase;}
+  footer nav{display:flex; gap:1.5rem;}
+  footer a:hover{color:var(--oxblood-bright);}
+
+  :focus-visible{
+    outline:2px solid var(--brass);
+    outline-offset:3px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">BLACK<span>OUT</span> head-office.</div>
+  <button class="mobile-toggle" id="navToggle" aria-expanded="false" aria-controls="navList">MENU</button>
+  <nav>
+    <ul id="navList">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#chairs">Barbers</a></li>
+      <li><a href="#gallery">Work</a></li>
+      <li><a href="#info">Hours</a></li>
+      <li><a href="#book" class="nav-book">Book Now</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-eyebrow">Est. 2019 — Chair-side, no appointment required attitude</div>
+  <h1>PRECISION<br>CUTS. <span class="accent">ZERO</span><br>MERCY.</h1>
+  <p class="hero-sub">Straight razor fades, sharp lines, and a shop that sounds like a drum machine on a Saturday. Blackout Barber Co. is where the cut matches the energy.</p>
+  <div class="hero-cta">
+    <a href="#book" class="btn btn-fill">Book a Chair</a>
+    <a href="#services" class="btn btn-outline">See Pricing</a>
+  </div>
+
+  <div class="hero-marquee">
+    <div class="hero-marquee-track">
+      <span>FADES</span><span class="hot">·</span><span>LINE-UPS</span><span class="hot">·</span><span>BEARD SCULPT</span><span class="hot">·</span><span>HOT TOWEL SHAVE</span><span class="hot">·</span><span>KIDS CUTS</span><span class="hot">·</span><span>WALK-INS WELCOME</span><span class="hot">·</span>
+      <span>FADES</span><span class="hot">·</span><span>LINE-UPS</span><span class="hot">·</span><span>BEARD SCULPT</span><span class="hot">·</span><span>HOT TOWEL SHAVE</span><span class="hot">·</span><span>KIDS CUTS</span><span class="hot">·</span><span>WALK-INS WELCOME</span><span class="hot">·</span>
+    </div>
+  </div>
+</section>
+
+<div class="stripe-divider"></div>
+
+<section class="services" id="services">
+  <div class="section-head">
+    <h2>The Menu</h2>
+    <div class="section-tag">Cash / Card / Tap</div>
+  </div>
+  <div class="service-list">
+    <div class="service-row">
+      <div class="service-name">Signature Fade <span class="service-desc">skin fade, blend, design on request</span></div>
+      <div class="service-price">$45</div>
+    </div>
+    <div class="service-row">
+      <div class="service-name">Line-Up <span class="service-desc">razor-sharp edge-up</span></div>
+      <div class="service-price">$20</div>
+    </div>
+    <div class="service-row">
+      <div class="service-name">Beard Sculpt <span class="service-desc">shape, taper, hot towel finish</span></div>
+      <div class="service-price">$25</div>
+    </div>
+    <div class="service-row">
+      <div class="service-name">Fade + Beard Combo <span class="service-desc">the full package</span></div>
+      <div class="service-price">$60</div>
+    </div>
+    <div class="service-row">
+      <div class="service-name">Hot Towel Shave <span class="service-desc">straight razor, old-school ritual</span></div>
+      <div class="service-price">$35</div>
+    </div>
+    <div class="service-row">
+      <div class="service-name">Kids Cut <span class="service-desc">12 & under</span></div>
+      <div class="service-price">$25</div>
+    </div>
+  </div>
+</section>
+
+<div class="stripe-divider"></div>
+
+<section class="about" id="chairs">
+  <div class="about-copy">
+    <p>No appointments needed to feel like you own the block after your cut.</p>
+    <p>Head-Office-Barbershop-. started in a two-chair storefront and built a name on consistency: same sharp lines, same respect, every single time you sit down. The shop runs on hip-hop, house plants nobody waters, and barbers who take the work seriously without taking themselves too seriously.</p>
+    <p>Every chair is a specialist. Pick your barber below or let the front desk match you.</p>
+  </div>
+  <div class="chairs">
+    <div class="chair"><span class="chair-name">Marcus "Blade" Reyes</span><span class="chair-role">Fades & Design</span></div>
+    <div class="chair"><span class="chair-name">Dee Coleman</span><span class="chair-role">Beard Specialist</span></div>
+    <div class="chair"><span class="chair-name">Tommy Okafor</span><span class="chair-role">Classic & Straight Razor</span></div>
+    <div class="chair"><span class="chair-name">Ana Vasquez</span><span class="chair-role">Kids & Color</span></div>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="section-head">
+    <h2>Fresh Work</h2>
+    <div class="section-tag">@blackoutbarberco</div>
+  </div>
+  <div class="gallery-grid">
+    <div>Skin Fade — Marcus</div>
+    <div>Line-Up</div>
+    <div>Beard Sculpt</div>
+    <div>Straight Razor</div>
+    <div>Design Fade</div>
+    <div>Kids Cut</div>
+  </div>
+</section>
+
+<section class="info" id="info">
+  <div class="hours-block">
+    <h2 style="font-size:2rem; margin-bottom:1.5rem;">Hours</h2>
+    <div class="hours-row"><span>Mon</span><span>Closed</span></div>
+    <div class="hours-row closed"><span>Tue — Fri</span><span>10:00 — 20:00</span></div>
+    <div class="hours-row"><span>Saturday</span><span>09:00 — 18:00</span></div>
+    <div class="hours-row"><span>Sunday</span><span>11:00 — 16:00</span></div>
+  </div>
+  <div class="addr-block">
+    <h2 style="font-size:2rem; margin-bottom:1.5rem;">Find Us</h2>
+    <p class="big">412 Union St<br>Unit B</p>
+    <p>Street parking after 6pm.<br>Two doors down from Ritual Coffee.</p>
+    <p style="margin-top:1.5rem; color:var(--brass);">(234) 9160686767</p>
+  </div>
+</section>
+
+<section class="book-cta" id="book">
+  <h2>WALK IN.<br>WALK OUT<br><span class="accent">DIFFERENT.</span></h2>
+  <p>Book online in under a minute, or just walk in — chairs turn fast.</p>
+  <a href="tel:+2349160686767 class="btn btn-fill">Call the Shop</a>
+</section>
+
+<footer>
+  <div class="fmark">Head-Office-Barbershop-and-spa.</div>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#chairs">Barbers</a>
+    <a href="#gallery">Work</a>
+    <a href="#info">Hours</a>
+  </nav>
+  <div>© 2026 Head-Office-Barbershop-and-spa.</div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const navList = document.getElementById('navList');
+  toggle.addEventListener('click', () => {
+    const isOpen = navList.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+  navList.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navList.classList.remove('open');
+    toggle.setAttribute('aria-expanded', false);
+  }));
+</script>
+
+</body>
+</html>
