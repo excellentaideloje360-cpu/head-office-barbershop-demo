@@ -3,70 +3,47 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BLACKOUT BARBER CO. — Cut Different</title>
+<title>The Head Office Barbershop & Spa — Wuse 2, Abuja</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --black: #0a0a0b;
-    --bone: #ece7dd;
-    --oxblood: #7a1414;
-    --oxblood-bright: #a81f1f;
-    --brass: #c99a2e;
-    --steel: #2b2b2e;
-    --steel-light: #45454a;
+    --sand: #EFE6D6;
+    --sand-deep: #E4D7C0;
+    --espresso: #362A20;
+    --olive: #4B5320;
+    --olive-light: #6B7A34;
+    --brass: #B08A3E;
+    --cream-text: #FAF6EE;
   }
 
   *{margin:0;padding:0;box-sizing:border-box;}
-
   html{scroll-behavior:smooth;}
 
   body{
-    background:var(--black);
-    color:var(--bone);
-    font-family:'Space Grotesk', sans-serif;
+    background:var(--sand);
+    color:var(--espresso);
+    font-family:'Manrope', sans-serif;
     overflow-x:hidden;
   }
 
-  h1,h2,h3, .display{
-    font-family:'Anton', sans-serif;
-    font-weight:400;
-    text-transform:uppercase;
-    letter-spacing:0.01em;
-    line-height:0.92;
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    line-height:1.02;
+    letter-spacing:-0.01em;
   }
 
-  .mono{
-    font-family:'JetBrains Mono', monospace;
-  }
+  .mono{font-family:'IBM Plex Mono', monospace;}
 
-  a{color:inherit;text-decoration:none;}
-
-  ::selection{background:var(--oxblood-bright);color:var(--bone);}
+  a{color:inherit; text-decoration:none;}
+  ::selection{background:var(--olive); color:var(--cream-text);}
 
   @media (prefers-reduced-motion: reduce){
     *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
   }
 
-  /* ---------- barber stripe divider (signature element) ---------- */
-  .stripe-divider{
-    height:14px;
-    width:100%;
-    background:repeating-linear-gradient(
-      -45deg,
-      var(--oxblood) 0px, var(--oxblood) 18px,
-      var(--bone) 18px, var(--bone) 36px,
-      var(--steel) 36px, var(--steel) 54px
-    );
-    background-size:152px 100%;
-    animation:stripe-scroll 3.5s linear infinite;
-  }
-  @keyframes stripe-scroll{
-    from{background-position-x:0;}
-    to{background-position-x:152px;}
-  }
-
-  /* ---------- nav ---------- */
+  /* ---------- header ---------- */
   header{
     position:fixed;
     top:0;left:0;right:0;
@@ -74,512 +51,526 @@
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:20px 6vw;
-    background:rgba(10,10,11,0.85);
-    backdrop-filter:blur(6px);
-    border-bottom:1px solid var(--steel);
+    padding:22px 6vw;
+    background:rgba(239,230,214,0.9);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(54,42,32,0.12);
   }
   .logo{
-    font-family:'Anton', sans-serif;
-    font-size:1.4rem;
-    letter-spacing:0.03em;
+    font-family:'Fraunces', serif;
+    font-size:1.25rem;
+    letter-spacing:0.01em;
   }
-  .logo span{color:var(--oxblood-bright);}
-  nav ul{
-    display:flex;
-    gap:2.2rem;
-    list-style:none;
+  .logo .sub{
+    display:block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.6rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--olive);
+    margin-top:2px;
   }
+  nav ul{display:flex; gap:2.2rem; list-style:none; align-items:center;}
   nav a{
-    font-family:'JetBrains Mono', monospace;
-    font-size:0.78rem;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.75rem;
     text-transform:uppercase;
     letter-spacing:0.08em;
-    position:relative;
-    padding-bottom:4px;
   }
-  nav a::after{
-    content:'';
-    position:absolute;
-    left:0;bottom:0;
-    width:0;height:2px;
-    background:var(--oxblood-bright);
-    transition:width 0.25s ease;
-  }
-  nav a:hover::after{width:100%;}
+  nav a:hover{color:var(--olive);}
   .nav-book{
-    background:var(--oxblood-bright);
-    color:var(--bone) !important;
-    padding:10px 18px;
-    font-weight:600;
+    background:var(--espresso);
+    color:var(--cream-text) !important;
+    padding:11px 20px;
+    border-radius:2px;
   }
-  .nav-book::after{display:none;}
-  .nav-book:hover{background:var(--brass);}
+  .nav-book:hover{background:var(--olive) !important; color:var(--cream-text) !important;}
 
   .mobile-toggle{display:none;}
-
-  @media (max-width: 820px){
+  @media (max-width:860px){
     nav ul{
       position:fixed;
-      top:64px;left:0;right:0;
-      background:var(--black);
+      top:70px;left:0;right:0;
+      background:var(--sand);
       flex-direction:column;
+      align-items:stretch;
       gap:0;
       max-height:0;
       overflow:hidden;
       transition:max-height 0.3s ease;
-      border-bottom:1px solid var(--steel);
+      border-bottom:1px solid rgba(54,42,32,0.12);
     }
-    nav ul.open{max-height:400px;}
-    nav li{border-bottom:1px solid var(--steel);}
-    nav a{display:block;padding:16px 6vw;}
+    nav ul.open{max-height:360px;}
+    nav li{border-bottom:1px solid rgba(54,42,32,0.1);}
+    nav a{display:block; padding:16px 6vw;}
+    .nav-book{border-radius:0;}
     .mobile-toggle{
       display:block;
       background:none;
-      border:1px solid var(--bone);
-      color:var(--bone);
-      font-family:'JetBrains Mono';
-      font-size:0.75rem;
+      border:1px solid var(--espresso);
+      color:var(--espresso);
+      font-family:'IBM Plex Mono';
+      font-size:0.7rem;
       padding:8px 12px;
-      cursor:pointer;
+      letter-spacing:0.08em;
+      text-transform:uppercase;
     }
   }
 
   /* ---------- hero ---------- */
   .hero{
     min-height:100svh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    padding:120px 6vw 60px;
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    align-items:center;
+    padding:110px 6vw 60px;
+    gap:3rem;
     position:relative;
+  }
+  .hero::before{
+    content:'';
+    position:absolute;
+    inset:0;
     background:
-      radial-gradient(ellipse at 80% 20%, rgba(122,20,20,0.35), transparent 55%),
-      var(--black);
+      radial-gradient(ellipse 500px 500px at 88% 30%, rgba(176,138,62,0.18), transparent 70%),
+      radial-gradient(ellipse 400px 400px at 10% 85%, rgba(75,83,32,0.14), transparent 70%);
+    pointer-events:none;
   }
-
   .hero-eyebrow{
-    font-family:'JetBrains Mono', monospace;
-    font-size:0.8rem;
-    letter-spacing:0.25em;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    letter-spacing:0.2em;
     text-transform:uppercase;
-    color:var(--brass);
-    margin-bottom:1.2rem;
+    color:var(--olive);
+    margin-bottom:1.3rem;
   }
-
   .hero h1{
-    font-size:clamp(3.2rem, 11vw, 8.5rem);
-    color:var(--bone);
+    font-size:clamp(2.6rem, 6.2vw, 5.2rem);
+    color:var(--espresso);
   }
-  .hero h1 .accent{
-    color:var(--oxblood-bright);
-    -webkit-text-stroke:2px var(--bone);
+  .hero h1 em{
+    font-style:italic;
+    color:var(--olive);
   }
-
   .hero-sub{
-    max-width:520px;
-    margin-top:1.8rem;
+    max-width:460px;
+    margin-top:1.6rem;
     font-size:1.05rem;
-    color:#b8b3a8;
-    line-height:1.55;
+    line-height:1.6;
+    color:#5c4d3c;
   }
-
-  .hero-cta{
-    display:flex;
-    gap:1rem;
-    margin-top:2.5rem;
-    flex-wrap:wrap;
-  }
-
+  .hero-cta{display:flex; gap:1rem; margin-top:2.3rem; flex-wrap:wrap;}
   .btn{
-    font-family:'JetBrains Mono', monospace;
+    font-family:'IBM Plex Mono', monospace;
     text-transform:uppercase;
-    font-size:0.85rem;
+    font-size:0.8rem;
     letter-spacing:0.05em;
-    padding:16px 30px;
-    border:2px solid var(--bone);
+    padding:15px 28px;
     display:inline-block;
+    border-radius:2px;
     transition:all 0.2s ease;
     cursor:pointer;
   }
-  .btn-fill{
-    background:var(--oxblood-bright);
-    border-color:var(--oxblood-bright);
-    color:var(--bone);
-  }
-  .btn-fill:hover{
-    background:var(--brass);
-    border-color:var(--brass);
-    color:var(--black);
-  }
-  .btn-outline:hover{
-    background:var(--bone);
-    color:var(--black);
-  }
+  .btn-fill{background:var(--espresso); color:var(--cream-text); border:1px solid var(--espresso);}
+  .btn-fill:hover{background:var(--olive); border-color:var(--olive);}
+  .btn-outline{border:1px solid var(--espresso); color:var(--espresso);}
+  .btn-outline:hover{background:var(--espresso); color:var(--cream-text);}
 
-  .hero-marquee{
-    position:absolute;
-    bottom:0;left:0;right:0;
-    white-space:nowrap;
+  .hero-visual{
+    position:relative;
+    height:520px;
+    border-radius:4px;
+    background:
+      repeating-linear-gradient(115deg, rgba(54,42,32,0.06) 0 2px, transparent 2px 26px),
+      linear-gradient(160deg, var(--sand-deep), #D8C6A4 60%, #CBB68C);
+    display:flex;
+    align-items:flex-end;
+    padding:1.6rem;
     overflow:hidden;
-    border-top:1px solid var(--steel);
   }
-  .hero-marquee-track{
-    display:inline-block;
-    padding:14px 0;
-    animation:marquee 22s linear infinite;
-    font-family:'JetBrains Mono', monospace;
-    font-size:0.78rem;
-    letter-spacing:0.15em;
-    color:var(--steel-light);
+  .hero-visual::after{
+    content:'';
+    position:absolute;
+    width:280px;height:280px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(255,255,255,0.35), transparent 70%);
+    top:-60px; right:-60px;
+    filter:blur(4px);
+  }
+  .visual-tag{
+    font-family:'IBM Plex Mono';
+    font-size:0.72rem;
     text-transform:uppercase;
+    letter-spacing:0.1em;
+    color:var(--espresso);
+    background:rgba(250,246,238,0.75);
+    padding:8px 14px;
+    border-radius:2px;
+    position:relative;
+    z-index:2;
   }
-  .hero-marquee-track span{margin:0 2rem;}
-  .hero-marquee-track span.hot{color:var(--oxblood-bright);}
-  @keyframes marquee{
-    from{transform:translateX(0);}
-    to{transform:translateX(-50%);}
+  @media (max-width:900px){
+    .hero{grid-template-columns:1fr;}
+    .hero-visual{height:320px;}
   }
 
   /* ---------- section shared ---------- */
-  section{
-    padding:110px 6vw;
-    position:relative;
-  }
+  section{padding:100px 6vw; position:relative;}
   .section-head{
     display:flex;
     justify-content:space-between;
     align-items:flex-end;
-    margin-bottom:3.5rem;
     gap:2rem;
+    margin-bottom:3.2rem;
     flex-wrap:wrap;
   }
-  .section-head h2{
-    font-size:clamp(2.2rem, 6vw, 4rem);
-  }
+  .section-head h2{font-size:clamp(2rem, 5vw, 3.2rem);}
   .section-tag{
-    font-family:'JetBrains Mono', monospace;
-    font-size:0.78rem;
+    font-family:'IBM Plex Mono';
+    font-size:0.75rem;
     text-transform:uppercase;
-    letter-spacing:0.15em;
-    color:var(--oxblood-bright);
-    border:1px solid var(--oxblood-bright);
-    padding:6px 14px;
-    white-space:nowrap;
+    letter-spacing:0.12em;
+    color:var(--olive);
   }
 
   /* ---------- services ---------- */
-  .services{background:var(--black);}
-  .service-list{
-    border-top:1px solid var(--steel);
+  .services-wrap{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:3rem;
+  }
+  .service-group h3{
+    font-size:1.2rem;
+    font-family:'IBM Plex Mono';
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--olive);
+    font-weight:500;
+    margin-bottom:1.4rem;
+    padding-bottom:0.8rem;
+    border-bottom:1px solid rgba(54,42,32,0.15);
   }
   .service-row{
     display:flex;
     justify-content:space-between;
-    align-items:center;
-    padding:1.8rem 0;
-    border-bottom:1px solid var(--steel);
-    gap:1rem;
-    transition:padding-left 0.25s ease, background 0.25s ease;
-  }
-  .service-row:hover{
-    background:rgba(122,20,20,0.12);
-    padding-left:1rem;
-  }
-  .service-name{
-    font-family:'Anton', sans-serif;
-    font-size:clamp(1.3rem, 3vw, 2rem);
-    text-transform:uppercase;
-    display:flex;
     align-items:baseline;
+    padding:1rem 0;
+    border-bottom:1px dashed rgba(54,42,32,0.18);
     gap:1rem;
   }
-  .service-desc{
-    font-family:'Space Grotesk';
-    font-size:0.85rem;
-    color:#8a8578;
-    font-weight:400;
-    text-transform:none;
-    letter-spacing:0;
+  .service-row .name{font-family:'Fraunces'; font-size:1.15rem;}
+  .service-row .desc{
+    display:block;
+    font-family:'Manrope';
+    font-size:0.82rem;
+    color:#8a7a63;
+    margin-top:2px;
   }
-  .service-price{
-    font-family:'JetBrains Mono', monospace;
-    font-size:1.3rem;
+  .service-row .price{
+    font-family:'IBM Plex Mono';
+    font-size:1rem;
     color:var(--brass);
     white-space:nowrap;
   }
+  @media (max-width:820px){
+    .services-wrap{grid-template-columns:1fr;}
+  }
 
-  /* ---------- about / chairs ---------- */
-  .about{
-    background:var(--steel);
+  /* ---------- ritual (signature element) ---------- */
+  .ritual{
+    background:var(--espresso);
+    color:var(--cream-text);
+  }
+  .ritual .section-tag{color:var(--brass);}
+  .ritual-steps{
     display:grid;
-    grid-template-columns:1.1fr 1fr;
-    gap:4rem;
-    align-items:center;
-  }
-  .about-copy p{
-    color:#c9c4b8;
-    line-height:1.7;
-    margin-bottom:1.2rem;
-    font-size:1rem;
-  }
-  .about-copy p:first-of-type{font-size:1.15rem;color:var(--bone);}
-
-  .chairs{
-    display:flex;
-    flex-direction:column;
+    grid-template-columns:repeat(4, 1fr);
     gap:0;
-    border:1px solid var(--steel-light);
+    border-top:1px solid rgba(250,246,238,0.2);
   }
-  .chair{
-    padding:1.4rem 1.6rem;
-    border-bottom:1px solid var(--steel-light);
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+  .ritual-step{
+    padding:2rem 1.6rem 2rem 0;
+    border-right:1px solid rgba(250,246,238,0.15);
+    position:relative;
   }
-  .chair:last-child{border-bottom:none;}
-  .chair-name{font-family:'Anton'; font-size:1.2rem; text-transform:uppercase;}
-  .chair-role{font-family:'JetBrains Mono'; font-size:0.72rem; color:var(--brass); text-transform:uppercase; letter-spacing:0.08em;}
-
-  @media (max-width: 900px){
-    .about{grid-template-columns:1fr;}
+  .ritual-step:last-child{border-right:none;}
+  .ritual-num{
+    font-family:'IBM Plex Mono';
+    font-size:0.85rem;
+    color:var(--brass);
+    margin-bottom:1rem;
+    display:block;
+  }
+  .ritual-step h4{
+    font-family:'Fraunces';
+    font-size:1.3rem;
+    font-weight:500;
+    margin-bottom:0.6rem;
+  }
+  .ritual-step p{
+    font-size:0.88rem;
+    color:#cfc6b6;
+    line-height:1.55;
+  }
+  @media (max-width:820px){
+    .ritual-steps{grid-template-columns:1fr 1fr;}
+    .ritual-step{border-right:none; border-bottom:1px solid rgba(250,246,238,0.15); padding:1.8rem 0;}
+  }
+  @media (max-width:560px){
+    .ritual-steps{grid-template-columns:1fr;}
   }
 
   /* ---------- gallery ---------- */
   .gallery-grid{
     display:grid;
-    grid-template-columns:repeat(4, 1fr);
-    grid-auto-rows:180px;
+    grid-template-columns:repeat(4,1fr);
+    grid-auto-rows:170px;
     gap:6px;
   }
   .gallery-grid div{
-    background:linear-gradient(135deg, var(--steel), var(--steel-light));
-    position:relative;
-    overflow:hidden;
+    background:linear-gradient(135deg, var(--sand-deep), #CBB68C);
     display:flex;
     align-items:flex-end;
     padding:12px;
-    font-family:'JetBrains Mono';
-    font-size:0.7rem;
-    color:#6f6a5f;
+    font-family:'IBM Plex Mono';
+    font-size:0.68rem;
     text-transform:uppercase;
-    letter-spacing:0.08em;
+    letter-spacing:0.06em;
+    color:#7a6a52;
+    border-radius:2px;
   }
   .gallery-grid div:nth-child(1){grid-column:span 2; grid-row:span 2;}
   .gallery-grid div:nth-child(4){grid-column:span 2;}
-  .gallery-grid div::before{
-    content:'';
-    position:absolute;inset:0;
-    background:repeating-linear-gradient(-45deg, transparent 0 8px, rgba(0,0,0,0.15) 8px 9px);
-  }
   @media (max-width:700px){
     .gallery-grid{grid-template-columns:repeat(2,1fr); grid-auto-rows:130px;}
-    .gallery-grid div:nth-child(1){grid-column:span 2;grid-row:span 1;}
+    .gallery-grid div:nth-child(1){grid-column:span 2; grid-row:span 1;}
   }
 
-  /* ---------- hours / location ---------- */
+  /* ---------- info / location ---------- */
   .info{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:4rem;
-    background:var(--black);
-    border-top:1px solid var(--steel);
-    border-bottom:1px solid var(--steel);
+    background:var(--sand-deep);
   }
   .hours-row{
     display:flex;
     justify-content:space-between;
-    padding:0.7rem 0;
-    border-bottom:1px dashed var(--steel-light);
-    font-family:'JetBrains Mono';
-    font-size:0.9rem;
+    padding:0.75rem 0;
+    border-bottom:1px dashed rgba(54,42,32,0.2);
+    font-family:'IBM Plex Mono';
+    font-size:0.85rem;
     text-transform:uppercase;
   }
-  .hours-row.closed{color:var(--oxblood-bright);}
-  .addr-block p{margin-bottom:0.5rem; color:#c9c4b8; line-height:1.6;}
   .addr-block .big{
-    font-family:'Anton';
-    font-size:1.8rem;
-    text-transform:uppercase;
-    color:var(--bone);
+    font-family:'Fraunces';
+    font-size:1.6rem;
     margin-bottom:1rem;
+    line-height:1.3;
+  }
+  .addr-block p{margin-bottom:0.6rem; color:#5c4d3c; line-height:1.6;}
+  .addr-block .contact-line{
+    font-family:'IBM Plex Mono';
+    color:var(--olive);
+    margin-top:1.2rem;
+    display:block;
   }
   @media (max-width:820px){
     .info{grid-template-columns:1fr;}
   }
 
-  /* ---------- booking cta ---------- */
+  /* ---------- book cta ---------- */
   .book-cta{
     text-align:center;
-    background:
-      radial-gradient(ellipse at 50% 0%, rgba(201,154,46,0.15), transparent 60%),
-      var(--black);
+    background:var(--sand);
   }
-  .book-cta h2{
-    font-size:clamp(2.4rem, 8vw, 5.5rem);
-  }
-  .book-cta .accent{color:var(--oxblood-bright);}
+  .book-cta h2{font-size:clamp(2.2rem, 7vw, 4.2rem);}
+  .book-cta h2 em{font-style:italic; color:var(--olive);}
   .book-cta p{
-    color:#b8b3a8;
-    max-width:480px;
-    margin:1.2rem auto 2.5rem;
+    max-width:460px;
+    margin:1.2rem auto 2.4rem;
+    color:#5c4d3c;
   }
 
   /* ---------- footer ---------- */
   footer{
-    padding:50px 6vw 40px;
+    padding:44px 6vw 36px;
+    background:var(--espresso);
+    color:#cfc6b6;
     display:flex;
     justify-content:space-between;
     align-items:center;
     flex-wrap:wrap;
-    gap:1.5rem;
-    font-family:'JetBrains Mono';
-    font-size:0.75rem;
-    color:#6f6a5f;
+    gap:1.2rem;
+    font-family:'IBM Plex Mono';
+    font-size:0.72rem;
     text-transform:uppercase;
     letter-spacing:0.05em;
   }
-  footer .fmark{color:var(--bone); font-family:'Anton'; font-size:1.1rem; text-transform:uppercase;}
-  footer nav{display:flex; gap:1.5rem;}
-  footer a:hover{color:var(--oxblood-bright);}
+  footer .fmark{font-family:'Fraunces'; font-size:1.05rem; color:var(--cream-text); text-transform:none;}
+  footer nav ul{display:flex; gap:1.4rem; list-style:none;}
+  footer a:hover{color:var(--brass);}
 
-  :focus-visible{
-    outline:2px solid var(--brass);
-    outline-offset:3px;
-  }
+  :focus-visible{outline:2px solid var(--brass); outline-offset:3px;}
 </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">BLACK<span>OUT</span> Barbershop and spa.</div>
+  <div class="logo">The Head Office<span class="sub">Barbershop &amp; Spa</span></div>
   <button class="mobile-toggle" id="navToggle" aria-expanded="false" aria-controls="navList">MENU</button>
   <nav>
     <ul id="navList">
       <li><a href="#services">Services</a></li>
-      <li><a href="#chairs">Barbers</a></li>
-      <li><a href="#gallery">Work</a></li>
-      <li><a href="#info">Hours</a></li>
-      <li><a href="#book" class="nav-book">Book Now</a></li>
+      <li><a href="#ritual">The Ritual</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#info">Visit</a></li>
+      <li><a href="tel:+2349160686767" class="nav-book">Book Now</a></li>
     </ul>
   </nav>
 </header>
 
 <section class="hero">
-  <div class="hero-eyebrow">Est. 2019 — Chair-side, no appointment required attitude</div>
-  <h1>PRECISION<br>CUTS. <span class="accent">ZERO</span><br>MERCY.</h1>
-  <p class="hero-sub">Straight razor fades, sharp lines, and a shop that sounds like a drum machine on a Saturday. Blackout Barber Co. is where the cut matches the energy.</p>
-  <div class="hero-cta">
-    <a href="#book" class="btn btn-fill">Book a Chair</a>
-    <a href="#services" class="btn btn-outline">See Pricing</a>
-  </div>
-
-  <div class="hero-marquee">
-    <div class="hero-marquee-track">
-      <span>FADES</span><span class="hot">·</span><span>LINE-UPS</span><span class="hot">·</span><span>BEARD SCULPT</span><span class="hot">·</span><span>HOT TOWEL SHAVE</span><span class="hot">·</span><span>KIDS CUTS</span><span class="hot">·</span><span>WALK-INS WELCOME</span><span class="hot">·</span>
-      <span>FADES</span><span class="hot">·</span><span>LINE-UPS</span><span class="hot">·</span><span>BEARD SCULPT</span><span class="hot">·</span><span>HOT TOWEL SHAVE</span><span class="hot">·</span><span>KIDS CUTS</span><span class="hot">·</span><span>WALK-INS WELCOME</span><span class="hot">·</span>
+  <div>
+    <div class="hero-eyebrow">Wuse 2, Abuja — Grooming &amp; Wellness</div>
+    <h1>Sharp cuts.<br><em>Slower</em> mornings.</h1>
+    <p class="hero-sub">The Head Office Barbershop &amp; Spa pairs precision grooming with the kind of quiet, unhurried care usually reserved for a spa day. Come in for a cut, stay for the ritual.</p>
+    <div class="hero-cta">
+      <a href="tel:+2349160686767" class="btn btn-fill">Call to Book</a>
+      <a href="#services" class="btn btn-outline">View Services</a>
     </div>
   </div>
+  <div class="hero-visual">
+    <div class="visual-tag">Shop 7, Sunset Place — Wuse 2</div>
+  </div>
 </section>
-
-<div class="stripe-divider"></div>
 
 <section class="services" id="services">
   <div class="section-head">
-    <h2>The Menu</h2>
-    <div class="section-tag">Cash / Card / Tap</div>
+    <h2>Services</h2>
+    <div class="section-tag">Prices on request &middot; call ahead</div>
   </div>
-  <div class="service-list">
-    <div class="service-row">
-      <div class="service-name">Signature Fade <span class="service-desc">skin fade, blend, design on request</span></div>
-      <div class="service-price">₦5000</div>
+  <div class="services-wrap">
+    <div class="service-group">
+      <h3>Barbering</h3>
+      <div class="service-row">
+        <span class="name">Signature Haircut<span class="desc">wash, cut, style</span></span>
+        <span class="price">₦1,500</span>
+      </div>
+      <div class="service-row">
+        <span class="name">Beard Trim &amp; Shape<span class="desc">hot towel finish</span></span>
+        <span class="price">₦2,500</span>
+      </div>
+      <div class="service-row">
+        <span class="name">Traditional Wet Shave<span class="desc">straight razor, warm lather</span></span>
+        <span class="price">₦5,000</span>
+      </div>
+      <div class="service-row">
+        <span class="name">Cut &amp; Beard Combo<span class="desc">the full grooming session</span></span>
+        <span class="price">₦11,000</span>
+      </div>
     </div>
-    <div class="service-row">
-      <div class="service-name">Line-Up <span class="service-desc">razor-sharp edge-up</span></div>
-      <div class="service-price">₦10,000</div>
-    </div>
-    <div class="service-row">
-      <div class="service-name">Beard Sculpt <span class="service-desc">shape, taper, hot towel finish</span></div>
-      <div class="service-price">₦10,000</div>
-    </div>
-    <div class="service-row">
-      <div class="service-name">Fade + Beard Combo <span class="service-desc">the full package</span></div>
-      <div class="service-price">₦17,000</div>
-    </div>
-    <div class="service-row">
-      <div class="service-name">Hot Towel Shave <span class="service-desc">straight razor, old-school ritual</span></div>
-      <div class="service-price">₦37,000</div>
-    </div>
-    <div class="service-row">
-      <div class="service-name">Kids Cut <span class="service-desc">12 & under</span></div>
-      <div class="service-price">₦1500</div>
+    <div class="service-group">
+      <h3>Spa &amp; Grooming</h3>
+      <div class="service-row">
+        <span class="name">Facial &amp; Skin Treatment<span class="desc">cleanse, steam, mask</span></span>
+        <span class="price">₦10,000</span>
+      </div>
+      <div class="service-row">
+        <span class="name">Head &amp; Shoulder Massage<span class="desc">30 min, deep pressure</span></span>
+        <span class="price">₦17,000</span>
+      </div>
+      <div class="service-row">
+        <span class="name">Manicure &amp; Pedicure<span class="desc">grooming, not just polish</span></span>
+        <span class="price">₦50,000</span>
+      </div>
+      <div class="service-row">
+        <span class="name">The Full Office<span class="desc">cut, shave, facial, massage</span></span>
+        <span class="price">₦12,000</span>
+      </div>
     </div>
   </div>
 </section>
 
-<div class="stripe-divider"></div>
-
-<section class="about" id="chairs">
-  <div class="about-copy">
-    <p>No appointments needed to feel like you own the block after your cut.</p>
-    <p>Blackout Barber Co. started in a two-chair storefront and built a name on consistency: same sharp lines, same respect, every single time you sit down. The shop runs on hip-hop, house plants nobody waters, and barbers who take the work seriously without taking themselves too seriously.</p>
-    <p>Every chair is a specialist. Pick your barber below or let the front desk match you.</p>
+<section class="ritual" id="ritual">
+  <div class="section-head">
+    <h2>The Ritual</h2>
+    <div class="section-tag">Every session, in order</div>
   </div>
-  <div class="chairs">
-    <div class="chair"><span class="chair-name">Marcus "Blade" Reyes</span><span class="chair-role">Fades & Design</span></div>
-    <div class="chair"><span class="chair-name">Dee Coleman</span><span class="chair-role">Beard Specialist</span></div>
-    <div class="chair"><span class="chair-name">Tommy Okafor</span><span class="chair-role">Classic & Straight Razor</span></div>
-    <div class="chair"><span class="chair-name">Ana Vasquez</span><span class="chair-role">Kids & Color</span></div>
+  <div class="ritual-steps">
+    <div class="ritual-step">
+      <span class="ritual-num">01</span>
+      <h4>Consult</h4>
+      <p>A quiet word with your barber on the cut, the shape, the finish you're after.</p>
+    </div>
+    <div class="ritual-step">
+      <span class="ritual-num">02</span>
+      <h4>Cut &amp; Shape</h4>
+      <p>Precision work, chair reclined, no rush — this is the main event.</p>
+    </div>
+    <div class="ritual-step">
+      <span class="ritual-num">03</span>
+      <h4>Hot Towel</h4>
+      <p>Warm towel, light oils, a few minutes to reset before you head back out.</p>
+    </div>
+    <div class="ritual-step">
+      <span class="ritual-num">04</span>
+      <h4>Finish</h4>
+      <p>Final line check, style set, and you're out looking like you planned it all along.</p>
+    </div>
   </div>
 </section>
 
 <section class="gallery" id="gallery">
   <div class="section-head">
-    <h2>Fresh Work</h2>
-    <div class="section-tag">@The-Head-Office-Barbershop-and-Spa</div>
+    <h2>In the Shop</h2>
+    <div class="section-tag">Wuse 2</div>
   </div>
   <div class="gallery-grid">
-    <div>Skin Fade — Marcus</div>
-    <div>Line-Up</div>
+    <div>Fresh Fade</div>
+    <div>Wet Shave</div>
+    <div>Facial Treatment</div>
+    <div>The Chairs</div>
     <div>Beard Sculpt</div>
-    <div>Straight Razor</div>
-    <div>Design Fade</div>
-    <div>Kids Cut</div>
+    <div>Reception</div>
   </div>
 </section>
 
 <section class="info" id="info">
   <div class="hours-block">
-    <h2 style="font-size:2rem; margin-bottom:1.5rem;">Hours</h2>
-    <div class="hours-row"><span>Mon</span><span>Closed</span></div>
-    <div class="hours-row closed"><span>Tue — Fri</span><span>10:00 — 20:00</span></div>
-    <div class="hours-row"><span>Saturday</span><span>09:00 — 18:00</span></div>
-    <div class="hours-row"><span>Sunday</span><span>11:00 — 16:00</span></div>
+    <h2 style="font-size:1.8rem; margin-bottom:1.5rem;">Hours</h2>
+    <div class="hours-row"><span>Mon — Fri</span><span>12:00 — 12:00</span></div>
+    <div class="hours-row"><span>Tusday</span><span>12:00 — 12:00</span></div>
+    <div class="hours-row"><span>Wednesday</span><span>12:00 — 12:00</span></div>
+    <div class="hours-row"><span>Thursday</span><span>12:00 — 12:00</span></div>
+  <div class="hours-row"><span>Friday</span><span>12:00 — 12:00</span></div>
+  <div class="hours-row"><span>Saturday</span><span>12:00 — 12:00</span></div>
+  <div class="hours-row"><span>Sunday</span><span>12:00 — 12:00</span></div>
   </div>
   <div class="addr-block">
-    <h2 style="font-size:2rem; margin-bottom:1.5rem;">Find Us</h2>
-    <p class="big">412 Union St<br>Unit B</p>
-    <p>Street parking after 6pm.<br>Two doors down from Ritual Coffee.</p>
-    <p style="margin-top:1.5rem; color:var(--brass);">(555) 019-2244</p>
+    <h2 style="font-size:1.8rem; margin-bottom:1.5rem;">Visit Us</h2>
+    <p class="big">Shop 7, Sunset Place<br>Plot 141 Adetokunbo Ademola Cres<br>Wuse 2, Abuja 904101<br>Federal Capital Territory, Nigeria</p>
+    <a href="tel:+2349160686767" class="contact-line">+234 916 068 6767</a>
   </div>
 </section>
 
 <section class="book-cta" id="book">
-  <h2>WALK IN.<br>WALK OUT<br><span class="accent">DIFFERENT.</span></h2>
-  <p>Book online in under a minute, or just walk in — chairs turn fast.</p>
-  <a href="tel:+2349160686767 class="btn btn-fill">Call the Shop</a>
+  <h2>Your chair<br>is <em>waiting.</em></h2>
+  <p>Walk-ins welcome, but a call ahead means no wait.</p>
+  <a href="tel:+2349160686767" class="btn btn-fill">Call +234 916 068 6767</a>
 </section>
 
 <footer>
-  <div class="fmark">The-Head-Office-Barbershop-and-Spa.</div>
+  <div class="fmark">The Head Office Barbershop &amp; Spa</div>
   <nav>
-    <a href="#services">Services</a>
-    <a href="#chairs">Barbers</a>
-    <a href="#gallery">Work</a>
-    <a href="#info">Hours</a>
+    <ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#ritual">Ritual</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#info">Visit</a></li>
+    </ul>
   </nav>
-  <div>© 2026 The-Head-Office-Barbershop-and-Spa.</div>
+  <div>© 2026 The Head Office Barbershop &amp; Spa</div>
 </footer>
 
 <script>
@@ -596,4 +587,5 @@
 </script>
 
 </body>
-</html>
+        </html>
+          
